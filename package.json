@@ -1,0 +1,15 @@
+{
+  "name": "pro-readme-gen",
+  "version": "1.0.0",
+  "description": "An API that creates a Professional README for the User after filling out the information for it via answering the User Prompts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^10.1.8"
+  }
+}
