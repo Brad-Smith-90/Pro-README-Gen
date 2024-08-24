@@ -4,7 +4,7 @@ import { generateMarkdown } from './markdown.js';
 
 // Function to prompt user for information
 async function promptUser() {
-  return inquirer.prompt([
+  const questions = [
     {
       type: 'input',
       name: 'title',
@@ -56,20 +56,52 @@ async function promptUser() {
         name: 'email',
         message: 'Enter your email address:'
       }
-    ]);
+    ];
+
+
+let answers = await inquirer.prompt(questions);
+let isConfirmed = false;
+
+while (!isConfirmed) {
+  console.log('\nReview your answers:');
+  console.log(answers);
+    
+
+     // Ask if the answers are correct
+    const { confirm } = await inquirer.prompt({
+      type: 'confirm',
+      name: 'confirm',
+      message: 'Are these answers correct?',
+    });
+
+    if (confirm) {
+      isConfirmed = true;
+    } else {
+      // Ask which answer they want to change
+      const { keyToChange } = await inquirer.prompt({
+        type: 'list',
+        name: 'keyToChange',
+        message: 'Which answer would you like to change?',
+        choices: [...Object.keys(answers), 'None'],
+      });
+
+      
+      if (keyToChange !== 'None') {
+        const updatedAnswer = await inquirer.prompt(questions.find(q => q.name === keyToChange));
+        answers[keyToChange] = updatedAnswer[keyToChange];
+      } else {
+        isConfirmed = true; // If the user selects 'None', exit the loop
+      }
+    }
+  }
+
+  return answers;
 }
 
 
- function writeToFile(fileName, data) {
-    fs.writeFileSync(fileName, data);
-  }
-
-
-
-
-
-
-
+function writeToFile(fileName, data) {
+  fs.writeFileSync(fileName, data);
+}
 
 
 async function init() {

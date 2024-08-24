@@ -36,11 +36,11 @@ ${data.contributing}
 ## Tests
 \`\`\`
 ${data.tests}
-\`\`\`
+\`\`\` 
 
 ## Questions
 If you have any questions about the project, feel free to reach out:
-- [${data.github}](https://github.com/${data.github})
+- Github:[${data.github}](https://github.com/${data.github})
 - Email: ${data.email}
 
 `;
