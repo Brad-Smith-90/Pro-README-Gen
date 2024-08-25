@@ -4,7 +4,6 @@ import path from 'path';
 import colors from 'colors';
 import { generateMarkdown } from './markdown.js';
 
-
 // Function to create a colored version of the color names for the prompt
 function getColorChoices() {
   return [
@@ -22,141 +21,164 @@ function getColorChoices() {
     colors.grey('lightgrey'),
     colors.grey('grey'),
     colors.black('black'),
-    'Cancel'
+    'Go Back', 
+    'Cancel' 
   ];
 }
 
- // Function to extract the color name from a colored text
+// Function to extract the color name from a colored text
 function extractColorName(coloredText) {
   return coloredText.replace(/\x1B[[(?);]{0,2}(;?\d)*./g, '');
 }
 
 // Function to prompt user for custom badges
-function promptForBadges(badges = [], callback) {
+async function promptForBadges(badges = [], callback) {
   const colorChoices = getColorChoices();
   const styleChoices = [
     'rounded',
     'flat-rounded',
-    'flat-sqaure',
+    'flat-square',
     'flat-square-lg',
     'social',
+    'Go Back', 
+    'Cancel'  
   ];
 
-  inquirer.prompt([
+  const { addBadge } = await inquirer.prompt([
     {
       type: 'confirm',
       name: 'addBadge',
       message: colors.bold.yellow('Would you like to add a custom badge?'),
       default: false,
     },
-  ]).then(({ addBadge }) => {
-    if (addBadge) {
-      console.log(colors.bold.red('\nNote: Some prompt colors may not exactly represent the chosen color.\nFor example, "orange" is displayed as red in the prompt, but the actual badge color will be orange.\n'));
+  ]);
 
-      inquirer.prompt([
-        {
-          type: 'input',
-          name: 'label',
-          message: colors.bold.green('Enter the badge label:'),
-        },
-        {
-          type: 'input',
-          name: 'message',
-          message: colors.bold.blue('Enter the badge message:'),
-        },
-        {
-          type: 'list',
-          name: 'color',
-          message: colors.bold.magenta('Choose the badge background color:'),
-          choices: colorChoices,
-        },
-        {
-          type: 'list',
-          name: 'labelColor',
-          message: colors.bold.cyan('Choose the badge label (text) color:'),
-          choices: colorChoices,
-          default: 'white',
-        },
-        {
-          type: 'list',
-          name: 'style',
-          message: colors.bold.yellow('Choose the badge shape:'),
-          choices: styleChoices,
-          default: 'flat',
-        },
-      ]).then(({ label, message, color, labelColor, style }) => {
-        // Extract the raw color names for the badge URL
-        const rawColor = extractColorName(color);
-        const rawLabelColor = extractColorName(labelColor);
+  if (addBadge) {
+    console.log(colors.bold.red('\nNote: Some prompt colors may not exactly represent the chosen color.\nFor example, "orange" is displayed as red in the prompt, but the actual badge color will be orange.\n'));
 
-        if (rawColor !== 'Cancel' && rawLabelColor !== 'Cancel') {
-          const badge = `![${label}](https://img.shields.io/badge/${encodeURIComponent(label)}-${encodeURIComponent(message)}-${encodeURIComponent(rawColor)}.svg?labelColor=${encodeURIComponent(rawLabelColor)}&style=${style})`;
-          badges.push(badge);
-        }
-        promptForBadges(badges, callback); // Recursively prompt for more badges
-      });
-    } else {
-      callback(badges); // No more badges, continue with the rest of the prompts
+    const badgeResponses = await inquirer.prompt([
+      {
+        type: 'input',
+        name: 'label',
+        message: colors.bold.green('Enter the badge label:'),
+      },
+      {
+        type: 'input',
+        name: 'message',
+        message: colors.bold.blue('Enter the badge message:'),
+      },
+      {
+        type: 'list',
+        name: 'color',
+        message: colors.bold.magenta('Choose the badge background color:'),
+        choices: colorChoices,
+      },
+      {
+        type: 'list',
+        name: 'labelColor',
+        message: colors.bold.cyan('Choose the badge label (text) color:'),
+        choices: colorChoices,
+        default: 'white',
+      },
+      {
+        type: 'list',
+        name: 'style',
+        message: colors.bold.yellow('Choose the badge shape:'),
+        choices: styleChoices,
+        default: 'flat',
+      },
+    ]);
+
+    // Handle "Go Back" or "Cancel" option for each badge response
+    for (const [key, value] of Object.entries(badgeResponses)) {
+      if (value === 'Go Back') {
+        return promptForBadges(badges, callback); // Restart the badge prompt.
+      } else if (value === 'Cancel') {
+        console.log(colors.bold.red('Badge creation canceled.'));
+        return callback(badges); // Exit the badge creation.
+      }
     }
-  });
+
+    // If "Go Back" or "Cancel" is not selected, proceed with creating the badge
+    const rawColor = extractColorName(badgeResponses.color);
+    const rawLabelColor = extractColorName(badgeResponses.labelColor);
+
+    const badge = `![${badgeResponses.label}](https://img.shields.io/badge/${encodeURIComponent(badgeResponses.label)}-${encodeURIComponent(badgeResponses.message)}-${encodeURIComponent(rawColor)}.svg?labelColor=${encodeURIComponent(rawLabelColor)}&style=${badgeResponses.style})`;
+    badges.push(badge);
+
+    return promptForBadges(badges, callback); // Recursively prompt for more badges
+  } else {
+    return callback(badges); 
+  }
 }
 
 // Function to prompt user for information
 async function promptUser() {
-  return inquirer.prompt([
+  const questions = [
     {
       type: 'input',
       name: 'title',
-      message: colors.bold.green("What's the title of your project?"),
+      message: colors.bold.green("What's the title of your project? (or type 'Cancel' to exit)"),
     },
     {
       type: 'input',
       name: 'description',
-      message: colors.bold.blue('Provide a description of your project:'),
+      message: colors.bold.blue('Provide a description of your project: (or type "Cancel" to exit)'),
     },
     {
       type: 'input',
       name: 'installation',
-      message: colors.bold.yellow('How do you install your project?'),
+      message: colors.bold.yellow('How do you install your project? (or type "Cancel" to exit)'),
     },
     {
       type: 'input',
       name: 'usage',
-      message: colors.bold.cyan('Provide instructions and examples for use:'),
+      message: colors.bold.cyan('Provide instructions and examples for use: (or type "Cancel" to exit)'),
     },
     {
       type: 'input',
       name: 'contributing',
-      message: colors.bold.magenta('Provide guidelines on how others can contribute to your project:'),
+      message: colors.bold.magenta('Provide guidelines on how others can contribute to your project: (or type "Cancel" to exit)'),
     },
     {
       type: 'input',
       name: 'tests',
-      message: colors.bold.red('Provide examples on how to run tests for your project:'),
+      message: colors.bold.red('Provide examples on how to run tests for your project: (or type "Cancel" to exit)'),
     },
     {
       type: 'list',
       name: 'license',
-      message: colors.bold.white('Choose a license for your project:'),
+      message: colors.bold.white('Choose a license for your project: (or type "Cancel" to exit)'),
       choices: ['MIT', 'GPLv2', 'Apache', 'BSD 3-Clause', 'None'],
     },
     {
       type: 'input',
       name: 'github',
-      message: colors.bold.green('Enter your GitHub username:'),
+      message: colors.bold.green('Enter your GitHub username: (or type "Cancel" to exit)'),
     },
     {
       type: 'input',
       name: 'email',
-      message: colors.bold.yellow('Enter your email address:'),
+      message: colors.bold.yellow('Enter your email address: (or type "Cancel" to exit)'),
     },
     {
       type: 'input',
       name: 'filename',
-      message: colors.bold.blue('Enter the filename for the generated README (default: README.md):'),
+      message: colors.bold.blue('Enter the filename for the generated README (default: README.md): (or type "Cancel" to exit)'),
       default: 'README.md',
-    },
-  ]);
+    }
+  ];
+
+  let answers = {};
+  for (let question of questions) {
+    const answer = await inquirer.prompt(question);
+    if (Object.values(answer)[0] === 'Cancel') {
+      console.log(colors.bold.red('Process canceled by the user.'));
+      process.exit(0); // Exit the process
+    }
+    Object.assign(answers, answer);
+  }
+  return answers;
 }
 
 // Function to write README file
@@ -177,7 +199,7 @@ async function init() {
   try {
     promptForBadges([], async (badges) => {
       const answers = await promptUser();
-      answers.badges = badges; // Include badges in the answers
+      answers.badges = badges; 
       const markdown = generateMarkdown(answers);
       writeToFile(answers.filename, markdown);
     });
