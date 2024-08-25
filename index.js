@@ -54,7 +54,7 @@ async function promptForBadges(badges = [], callback) {
   ]);
 
   if (addBadge) {
-    console.log(colors.bold.red('\nNote: Some prompt colors may not exactly represent the chosen color.\nFor example, "orange" is displayed as red in the prompt, but the actual badge color will be orange.\n'));
+    console.log(colors.bold.blue('\nNote: Some prompt colors may not exactly represent the chosen color.\nFor example, "orange" is displayed as red in the prompt, but the actual badge color will be orange.\n'));
 
     const badgeResponses = await inquirer.prompt([
       {
@@ -65,25 +65,25 @@ async function promptForBadges(badges = [], callback) {
       {
         type: 'input',
         name: 'message',
-        message: colors.bold.blue('Enter the badge message:'),
+        message: colors.bold.yellow('Enter the badge message:'),
       },
       {
         type: 'list',
         name: 'color',
-        message: colors.bold.magenta('Choose the badge background color:'),
+        message: colors.bold.green('Choose the badge background color:'),
         choices: colorChoices,
       },
       {
         type: 'list',
         name: 'labelColor',
-        message: colors.bold.cyan('Choose the badge label (text) color:'),
+        message: colors.bold.yellow('Choose the badge label color:'),
         choices: colorChoices,
         default: 'white',
       },
       {
         type: 'list',
         name: 'style',
-        message: colors.bold.yellow('Choose the badge shape:'),
+        message: colors.bold.green('Choose the badge shape:'),
         choices: styleChoices,
         default: 'flat',
       },
@@ -118,12 +118,12 @@ async function promptUser() {
     {
       type: 'input',
       name: 'title',
-      message: colors.bold.green("What's the title of your project? (or type 'Cancel' to exit)"),
+      message: colors.bold.yellow("What's the title of your project? (or type 'Cancel' to exit)"),
     },
     {
       type: 'input',
       name: 'description',
-      message: colors.bold.blue('Provide a description of your project: (or type "Cancel" to exit)'),
+      message: colors.bold.green('Provide a description of your project: (or type "Cancel" to exit)'),
     },
     {
       type: 'input',
@@ -133,38 +133,45 @@ async function promptUser() {
     {
       type: 'input',
       name: 'usage',
-      message: colors.bold.cyan('Provide instructions and examples for use: (or type "Cancel" to exit)'),
+      message: colors.bold.green('Provide instructions and examples for use: (or type "Cancel" to exit)'),
     },
     {
       type: 'input',
       name: 'contributing',
-      message: colors.bold.magenta('Provide guidelines on how others can contribute to your project: (or type "Cancel" to exit)'),
+      message: colors.bold.yellow('Provide guidelines on how others can contribute to your project: (or type "Cancel" to exit)'),
     },
     {
       type: 'input',
       name: 'tests',
-      message: colors.bold.red('Provide examples on how to run tests for your project: (or type "Cancel" to exit)'),
+      message: colors.bold.green('Provide examples on how to run tests for your project: (or type "Cancel" to exit)'),
     },
     {
       type: 'list',
       name: 'license',
-      message: colors.bold.white('Choose a license for your project: (or type "Cancel" to exit)'),
-      choices: ['MIT', 'GPLv2', 'Apache', 'BSD 3-Clause', 'None'],
+      message: colors.bold.yellow('Choose a license for your project: (or type "Cancel" to exit)'),
+      choices: [
+        colors.green('MIT'),
+        colors.yellow('GPLv2'),
+        colors.green('Apache'),
+        colors.yellow('BSD 3-Clause'),
+        colors.white('None'),
+        colors.bold.red('Cancel')  // If the user wants to cancel the process
+      ],
     },
     {
       type: 'input',
       name: 'github',
-      message: colors.bold.green('Enter your GitHub username: (or type "Cancel" to exit)'),
+      message: colors.bold.yellow('Enter your GitHub username: (or type "Cancel" to exit)'),
     },
     {
       type: 'input',
       name: 'email',
-      message: colors.bold.yellow('Enter your email address: (or type "Cancel" to exit)'),
+      message: colors.bold.green('Enter your email address: (or type "Cancel" to exit)'),
     },
     {
       type: 'input',
       name: 'filename',
-      message: colors.bold.blue('Enter the filename for the generated README (default: README.md): (or type "Cancel" to exit)'),
+      message: colors.bold.yellow('Enter the filename for the generated README (default: README.md): (or type "Cancel" to exit)'),
       default: 'README.md',
     }
   ];
