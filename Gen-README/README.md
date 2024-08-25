@@ -1,9 +1,11 @@
-# qed
+# .
+
+![License](https://img.shields.io/badge/License-MIT-blue.svg?labelColor=grey&style=social) ![Node](https://img.shields.io/badge/Node-JS-gold.svg?labelColor=red&style=for-the-badge) ![JS](https://img.shields.io/badge/JS-Javascript-orange.svg?labelColor=gold&style=plastic) ![Npm](https://img.shields.io/badge/Npm-Inquirer-green.svg?labelColor=magenta&style=flat) ![Npm](https://img.shields.io/badge/Npm-Colors-lightblue.svg?labelColor=magenta&style=flat-square)  <!-- Add the badges to the top -->
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Description
-cancel
+.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -15,11 +17,11 @@ cancel
 
 ## Installation
 ```
-sdsd
+.
 ```
 
 ## Usage
-dsadsdas
+.
 
 ## License
     
@@ -27,15 +29,15 @@ dsadsdas
     
 
 ## Contributing
-dsadsads
+.
 
 ## Tests
 ```
-dsadsad
-``` 
+.
+```
 
 ## Questions
 If you have any questions about the project, feel free to reach out:
-- Github:[dsad](https://github.com/dsad)
-- Email: dsadsad
+- Github: [.](https://github.com/.)
+- Email: .
 
