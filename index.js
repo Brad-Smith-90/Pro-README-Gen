@@ -10,21 +10,18 @@ function getColorChoices() {
   return [
     colors.brightGreen('brightgreen'),
     colors.green('green'),
-    colors.yellow('yellow'),
     colors.green('yellowgreen'),
+    colors.yellow('yellow'),
+    colors.yellow('gold'),
     colors.red('orange'),
     colors.red('red'),
-    colors.blue('blue'),
-    colors.grey('lightgrey'),
-    colors.yellow('gold'),
-    colors.magenta('magenta'),
-    colors.magenta('pink'),
-    colors.cyan('lightblue'),
-    colors.magenta('purple'),
     colors.cyan('cyan'),
+    colors.blue('blue'),
+    colors.magenta('magenta'),
+    colors.magenta('purple'),
+    colors.grey('lightgrey'),
     colors.grey('grey'),
     colors.black('black'),
-    colors.red('important'),
     'Cancel'
   ];
 }
@@ -38,11 +35,11 @@ function extractColorName(coloredText) {
 function promptForBadges(badges = [], callback) {
   const colorChoices = getColorChoices();
   const styleChoices = [
-    'plastic',
-    'flat',
-    'flat-square',
-    'for-the-badge',
-    'social'
+    'rounded',
+    'flat-rounded',
+    'flat-sqaure',
+    'flat-square-lg',
+    'social',
   ];
 
   inquirer.prompt([
