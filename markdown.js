@@ -13,7 +13,7 @@ ${renderLicenseBadge(data.license)}
 
 
 
- ## <span style="font-size:1.5em;color:#2E86C1">Table of Contents</span>
+ ## <span style="font-size:1.5em;color:#f27900">Table of Contents</span>
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
