@@ -1,5 +1,4 @@
 // markdown.js
-
 import { renderLicenseBadge, renderLicenseSection } from './license.js';
 
 // Function to generate markdown for README
@@ -12,16 +11,19 @@ ${badgeSection}  <!-- Add the badges to the top -->
 
 ${renderLicenseBadge(data.license)}
 
-## Description
-${data.description}
 
-## Table of Contents
+
+ ## <span style="font-size:1.5em;color:#2E86C1">Table of Contents</span>
+- [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
 - [Contributing](#contributing)
 - [Tests](#tests)
 - [Questions](#questions)
+
+## <span id="installation" style="font-size:1.5em;color:#27AE60">Description
+${data.description}
 
 ## Installation
 \`\`\`

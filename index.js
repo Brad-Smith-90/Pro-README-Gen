@@ -4,6 +4,7 @@ import path from 'path';
 import colors from 'colors';
 import { generateMarkdown } from './markdown.js';
 
+
 // Function to create a colored version of the color names for the prompt
 function getColorChoices() {
   return [
@@ -28,12 +29,12 @@ function getColorChoices() {
   ];
 }
 
-// Function to extract the plain color name from the colored text (needed for the badge URL)
+ // Function to extract the color name from a colored text
 function extractColorName(coloredText) {
   return coloredText.replace(/\x1B[[(?);]{0,2}(;?\d)*./g, '');
 }
 
-// Function to prompt user for badge details recursively
+// Function to prompt user for custom badges
 function promptForBadges(badges = [], callback) {
   const colorChoices = getColorChoices();
   const styleChoices = [
@@ -95,7 +96,7 @@ function promptForBadges(badges = [], callback) {
           const badge = `![${label}](https://img.shields.io/badge/${encodeURIComponent(label)}-${encodeURIComponent(message)}-${encodeURIComponent(rawColor)}.svg?labelColor=${encodeURIComponent(rawLabelColor)}&style=${style})`;
           badges.push(badge);
         }
-        promptForBadges(badges, callback); // Recurse to add more badges
+        promptForBadges(badges, callback); // Recursively prompt for more badges
       });
     } else {
       callback(badges); // No more badges, continue with the rest of the prompts
