@@ -35,6 +35,7 @@ function getColorChoices() {
 async function promptForBadges(badges = [], callback) {
   const colorChoices = getColorChoices();
   const styleChoices = [
+    'plastic',
     'rounded',
     'flat-rounded',
     'flat-square',
@@ -65,13 +66,7 @@ async function promptForBadges(badges = [], callback) {
       {
         type: 'input',
         name: 'message',
-        message: colors.bold.yellow('Enter the badge message:'),
-      },
-      {
-        type: 'list',
-        name: 'color',
-        message: colors.bold.green('Choose the badge background color:'),
-        choices: colorChoices,
+        message: colors.bold.yellow('Enter the badge name:'),
       },
       {
         type: 'list',
@@ -82,10 +77,16 @@ async function promptForBadges(badges = [], callback) {
       },
       {
         type: 'list',
+        name: 'color',
+        message: colors.bold.green('Choose the badge name color:'),
+        choices: colorChoices,
+      },
+      {
+        type: 'list',
         name: 'style',
-        message: colors.bold.green('Choose the badge shape:'),
+        message: colors.bold.yellow('Choose the badge shape:'),
         choices: styleChoices,
-        default: 'flat',
+        default: 'plastic',
       },
     ]);
 

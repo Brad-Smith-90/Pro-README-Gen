@@ -1,9 +1,9 @@
 // markdown.js
-import { renderLicenseBadge, renderLicenseSection } from './license.js';
+import { renderLicenseBadge, renderLicenseSection } from "./license.js";
 
 // Function to generate markdown for README
 export function generateMarkdown(data) {
-  const badgeSection = data.badges.length > 0 ? data.badges.join(' ') : ''; // Join badges into a single string
+  const badgeSection = data.badges.length > 0 ? data.badges.join(" ") : ""; // Join badges into a single string
 
   return `# ${data.title}
 
@@ -13,7 +13,7 @@ ${renderLicenseBadge(data.license)}
 
 
 
- ## <span style="font-size:1.5em;color:#f27900">Table of Contents</span>
+## Table of Contents
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -22,7 +22,7 @@ ${renderLicenseBadge(data.license)}
 - [Tests](#tests)
 - [Questions](#questions)
 
-## <span id="installation" style="font-size:1.5em;color:#27AE60">Description
+## Description
 ${data.description}
 
 ## Installation
