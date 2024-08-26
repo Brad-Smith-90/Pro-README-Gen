@@ -1,13 +1,13 @@
-# .
+# s
 
-![License](https://img.shields.io/badge/License-MIT-blue.svg?labelColor=grey&style=social) ![Node](https://img.shields.io/badge/Node-JS-gold.svg?labelColor=red&style=for-the-badge) ![JS](https://img.shields.io/badge/JS-Javascript-orange.svg?labelColor=gold&style=plastic) ![Npm](https://img.shields.io/badge/Npm-Inquirer-green.svg?labelColor=magenta&style=flat) ![Npm](https://img.shields.io/badge/Npm-Colors-lightblue.svg?labelColor=magenta&style=flat-square)  <!-- Add the badges to the top -->
+  <!-- Add the badges to the top -->
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-## Description
-.
 
-## Table of Contents
+
+ ## <span style="font-size:1.5em;color:#f27900">Table of Contents</span>
+- [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
@@ -15,13 +15,16 @@
 - [Tests](#tests)
 - [Questions](#questions)
 
+## <span id="installation" style="font-size:1.5em;color:#27AE60">Description
+s
+
 ## Installation
 ```
-.
+s
 ```
 
 ## Usage
-.
+s
 
 ## License
     
@@ -29,15 +32,15 @@
     
 
 ## Contributing
-.
+s
 
 ## Tests
 ```
-.
+a
 ```
 
 ## Questions
 If you have any questions about the project, feel free to reach out:
-- Github: [.](https://github.com/.)
-- Email: .
+- Github: [s](https://github.com/s)
+- Email: s
 

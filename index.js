@@ -150,12 +150,12 @@ async function promptUser() {
       name: 'license',
       message: colors.bold.yellow('Choose a license for your project: (or type "Cancel" to exit)'),
       choices: [
-        colors.green('MIT'),
-        colors.yellow('GPLv2'),
-        colors.green('Apache'),
-        colors.yellow('BSD 3-Clause'),
-        colors.white('None'),
-        colors.bold.red('Cancel')  // If the user wants to cancel the process
+        ('MIT'),
+        ('GPLv2'),
+        ('Apache'),
+        ('BSD 3-Clause'),
+        ('None'),
+        ('Cancel')  // If the user wants to cancel the process
       ],
     },
     {
