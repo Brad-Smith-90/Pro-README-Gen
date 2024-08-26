@@ -1,6 +1,6 @@
-# s
+# d
 
-  <!-- Add the badges to the top -->
+![Node](https://img.shields.io/badge/Node-JS-gold.svg?labelColor=orange&style=rounded) ![NPM](https://img.shields.io/badge/NPM-Colors-magenta.svg?labelColor=cyan&style=flat-rounded) ![JS](https://img.shields.io/badge/JS-Javascript-orange.svg?labelColor=gold&style=flat-square) ![npm Inquirer](https://img.shields.io/badge/npm%20Inquirer-n-orange.svg?labelColor=purple&style=social)  <!-- Add the badges to the top -->
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
@@ -16,15 +16,15 @@
 - [Questions](#questions)
 
 ## <span id="installation" style="font-size:1.5em;color:#27AE60">Description
-s
+a
 
 ## Installation
 ```
-s
+a
 ```
 
 ## Usage
-s
+a
 
 ## License
     
@@ -32,7 +32,7 @@ s
     
 
 ## Contributing
-s
+a
 
 ## Tests
 ```

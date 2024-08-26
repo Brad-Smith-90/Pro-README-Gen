@@ -4,6 +4,11 @@ import path from 'path';
 import colors from 'colors';
 import { generateMarkdown } from './markdown.js';
 
+// Function to extract the color name from a colored text
+function extractColorName(coloredText) {
+  return coloredText.replace(/\x1B[[(?);]{0,2}(;?\d)*./g, '');
+}
+
 // Function to create a colored version of the color names for the prompt
 function getColorChoices() {
   return [
@@ -21,14 +26,9 @@ function getColorChoices() {
     colors.grey('lightgrey'),
     colors.grey('grey'),
     colors.black('black'),
-    'Go Back', 
-    'Cancel' 
+    'Go Back',
+    'Cancel'
   ];
-}
-
-// Function to extract the color name from a colored text
-function extractColorName(coloredText) {
-  return coloredText.replace(/\x1B[[(?);]{0,2}(;?\d)*./g, '');
 }
 
 // Function to prompt user for custom badges
@@ -40,8 +40,8 @@ async function promptForBadges(badges = [], callback) {
     'flat-square',
     'flat-square-lg',
     'social',
-    'Go Back', 
-    'Cancel'  
+    'Go Back',
+    'Cancel'
   ];
 
   const { addBadge } = await inquirer.prompt([
@@ -108,7 +108,7 @@ async function promptForBadges(badges = [], callback) {
 
     return promptForBadges(badges, callback); // Recursively prompt for more badges
   } else {
-    return callback(badges); 
+    return callback(badges);
   }
 }
 
@@ -150,14 +150,34 @@ async function promptUser() {
       name: 'license',
       message: colors.bold.yellow('Choose a license for your project: (or type "Cancel" to exit)'),
       choices: [
-        ('MIT'),
-        ('GPLv2'),
-        ('Apache'),
-        ('BSD 3-Clause'),
-        ('None'),
-        ('Cancel')  // If the user wants to cancel the process
+        'MIT',
+        'GPLv2',
+        'Apache',
+        'BSD 3-Clause',
+        'None',
+        'Cancel'  // If the user wants to cancel the process
       ],
+      filter: (input) => extractColorName(input),
     },
+  ];
+
+  let answers = {};
+  for (let question of questions) {
+    const answer = await inquirer.prompt(question);
+    if (Object.values(answer)[0] === 'Cancel') {
+      console.log(colors.bold.red('Process canceled by the user.'));
+      process.exit(0); // Exit the process
+    }
+    Object.assign(answers, answer);
+  }
+
+  // Prompt for custom badges after license selection
+  await promptForBadges([], (badges) => {
+    answers.badges = badges;
+  });
+
+  // Resume with GitHub and other details
+  const githubQuestions = [
     {
       type: 'input',
       name: 'github',
@@ -176,8 +196,7 @@ async function promptUser() {
     }
   ];
 
-  let answers = {};
-  for (let question of questions) {
+  for (let question of githubQuestions) {
     const answer = await inquirer.prompt(question);
     if (Object.values(answer)[0] === 'Cancel') {
       console.log(colors.bold.red('Process canceled by the user.'));
@@ -185,6 +204,7 @@ async function promptUser() {
     }
     Object.assign(answers, answer);
   }
+
   return answers;
 }
 
@@ -204,12 +224,9 @@ function writeToFile(fileName, data) {
 // Function to initialize the app
 async function init() {
   try {
-    promptForBadges([], async (badges) => {
-      const answers = await promptUser();
-      answers.badges = badges; 
-      const markdown = generateMarkdown(answers);
-      writeToFile(answers.filename, markdown);
-    });
+    const answers = await promptUser(); // First, prompt for the main information, including license and custom badges
+    const markdown = generateMarkdown(answers);
+    writeToFile(answers.filename, markdown);
   } catch (err) {
     console.error(colors.bold.red('Error! Unable to generate README.'), err);
   }
