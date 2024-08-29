@@ -22,9 +22,8 @@ A well-crafted README is crucial for any project, as it provides essential infor
 ## Features
 
 - **Interactive CLI**: Answer a series of prompts to generate a README file.
-- **Customizable Templates**: Choose from a variety of templates or create your own.
 - **Support for Markdown Syntax**: Automatically formats text with Markdown.
-- **Optional Sections**: Includes optional sections like badges, credits, and more.
+- **Optional Custom Badges**: Includes option to ass custom badges to your README's. Enter custom Label and name, pick from a variety of name and label colors, choose the style(shape) of your badge!
 - **License Management**: Easily add an appropriate license to your README.
 
 ## Installation
