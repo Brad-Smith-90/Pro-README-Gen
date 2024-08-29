@@ -5,6 +5,9 @@
 
 Welcome to the **Professional README Generator**! This tool is designed to help developers and project managers create well-structured and professional README files with minimal effort. By answering a few questions, this generator will produce a high-quality README file that you can use in your projects.
 
+![Watch the video](https://img.youtube.com/vi/noLXcFmrB18/0.jpg)](https://www.youtube.com/watch?v=noLXcFmrB18)
+
+
 ## Table of Contents
 
 - [Introduction](#introduction)
