@@ -46,13 +46,13 @@ To use the Professional README Generator, follow these steps:
 
 To generate a README file, run the following command:
 ```bash
-npm start
+node index.js
 ```
 You will be prompted to answer several questions about your project. Based on your answers, a folder "Gen-README" will be created in your working directory along with your generated README inside.
 
 ## Example
 ```bash
-npm start
+node index.js
 ```
 The CLI will ask for details like:
 
