@@ -1,5 +1,8 @@
 # Professional README Generator
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+
 Welcome to the **Professional README Generator**! This tool is designed to help developers and project managers create well-structured and professional README files with minimal effort. By answering a few questions, this generator will produce a high-quality README file that you can use in your projects.
 
 ## Table of Contents
