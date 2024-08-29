@@ -5,6 +5,8 @@
 
 Welcome to the **Professional README Generator**! This tool is designed to help developers and project managers create well-structured and professional README files with minimal effort. By answering a few questions, this generator will produce a high-quality README file that you can use in your projects.
 
+## View the walkthrough demo here:
+
 [![Watch the video](https://github.com/Brad-Smith-90/Pro-README-Gen/blob/main/assets/ThumbnailProj2.png)](https://www.youtube.com/watch?v=noLXcFmrB18)
 
 
