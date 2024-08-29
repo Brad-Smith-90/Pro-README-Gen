@@ -34,10 +34,9 @@ To use the Professional README Generator, follow these steps:
    ```bash
    git clone https://github.com/your-username/professional-readme-generator.git
    ```
-2. Navigate to the project directory:
-   ```bash
-   cd professional-readme-generator
-   ```
+2. Navigate to the project directory.
+
+  
 3. Install the necessary dependencies:
    ```bash
    npm install
