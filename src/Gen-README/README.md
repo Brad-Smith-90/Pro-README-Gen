@@ -1,6 +1,6 @@
-# Professional README Generator
+# Walkthrough Demo
 
-  <!-- Add the badges to the top -->
+![Node](https://img.shields.io/badge/Node-JS-gold.svg?labelColor=orange&style=plastic) ![Github](https://img.shields.io/badge/Github-Repository-blue.svg?labelColor=orange&style=flat-rounded)  <!-- Add the badges to the top -->
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
@@ -14,15 +14,15 @@
 - [Questions](#questions)
 
 ## Description
-this command-line application dynamically generates a professional README.md file based on user input. It uses the Inquirer package for interactive prompts and allows users to customize badges, select a license, and provide detailed information about thier project.
+Sample Tex
 
 ## Installation
-
-(1.)`git clone` https://github.com/Brad-Smith-90/Pro-README-Gen.git  (2.) `cd Professional-README-Generator.` (3.)`npm install`
-
+```
+Insallaion Instructions will go here e.g. npm install
+```
 
 ## Usage
-`node index.js`  Follow the on-screen prompts to generate your README.md file. The application will ask for details about youre project, including title, description, installation steps, usage, and more. After completing the prompts, a README.md file will be generated in the Gen-README directory.
+Usage Examples go here! 
 
 ## License
     
@@ -30,12 +30,12 @@ this command-line application dynamically generates a professional README.md fil
     
 
 ## Contributing
-Contributions are welcome! Please fork the repository, create a new branch for your feature or bugfix, and submit a pull request for review. Ensure your code adheres to the existing code standards and includes appropriate tests.
+Contribution guidelines here!
 
 ## Tests
-
-Run this command to execute any test cases and validate the functionality of your changes before submitting a pull request --> `npm test`
-
+```
+Testing Insructions go here. e.g. npm test
+```
 
 ## Questions
 If you have any questions about the project, feel free to reach out:
