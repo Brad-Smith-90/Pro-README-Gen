@@ -45,7 +45,7 @@ To use the Professional README Generator, follow these steps:
 
 ## Usage
 
-To generate README file, run the following command:
+To generate a README file, run the following command:
 ```bash
 npm start
 ```
@@ -83,7 +83,7 @@ Contributions are welcome! If you have suggestions for new features or improveme
 
 **5. Open a pull request**
 
-Please make sure to updates tests as appropriate.
+Please make sure to update tests as appropriate.
 
 ## License
 
@@ -99,7 +99,8 @@ If you have any questions, feel free to reach out:
 
 -**Github:** [Brad-Smith-90](Brad-Smith-90)
 
-Thank you for using the Professional README Generator! I hope it helps you create clean and informative README files for all your projects.
+
+**Thank you for using the Professional README Generator! I hope it helps you create clean and informative README files for all your projects!**
 
    
 
