@@ -1,6 +1,6 @@
-# Walkthrough Demo
+# Professional README Generator
 
-![Node](https://img.shields.io/badge/Node-JS-gold.svg?labelColor=orange&style=plastic) ![Github](https://img.shields.io/badge/Github-Repository-blue.svg?labelColor=orange&style=flat-rounded)  <!-- Add the badges to the top -->
+![Node](https://img.shields.io/badge/Node-JS-gold.svg?labelColor=orange&style=plastic) ![JS](https://img.shields.io/badge/JS-Javascript-red.svg?labelColor=gold&style=rounded) ![npm](https://img.shields.io/badge/npm-Inquirer-green.svg?labelColor=grey&style=flat-rounded) ![npm](https://img.shields.io/badge/npm-Colors-magenta.svg?labelColor=grey&style=flat-square) ![npm](https://img.shields.io/badge/npm-Boxicons-blue.svg?labelColor=grey&style=flat-square-lg) ![Github](https://img.shields.io/badge/Github-Repository-brightgreen.svg?labelColor=brightgreen&style=social)  <!-- Add the badges to the top -->
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
@@ -14,15 +14,15 @@
 - [Questions](#questions)
 
 ## Description
-Sample Tex
+The professional README generator is a CLI that prompts the User for Information about thier project and will Generate a Professional README containing the Information provided for each section.
 
 ## Installation
 ```
-Insallaion Instructions will go here e.g. npm install
+To install the project simply fork or clone the repository, navigate to the proper directory, `npm install` , and type `node index.js` in the command line.
 ```
 
 ## Usage
-Usage Examples go here! 
+Afer proper installation and entering `node.js` in the command line; simply fill out all the prompts that follow. This tool is great for developers who wish to produce a professional README for thier project with minimal time and effort!
 
 ## License
     
@@ -30,15 +30,15 @@ Usage Examples go here!
     
 
 ## Contributing
-Contribution guidelines here!
+Contributions are welcome! If you have suggestions for new features or improvements, please open an issue or submit a pull request. Make sure to follow the contribution guidelines:  1.Fork the Repository  2.Create a new branch  (git checkout -b feature-branch) 3. Commit your changes (git commit -m `Add some feature`) 4. Push to the branch (git push origing feature-branch). 5. open a pull request.  
 
 ## Tests
 ```
-Testing Insructions go here. e.g. npm test
+Please make sure to update tests as appropriate. `npm test`
 ```
 
 ## Questions
 If you have any questions about the project, feel free to reach out:
 - Github: [Brad-Smith-90](https://github.com/Brad-Smith-90)
-- Email: B.Smith66090@gmail.com
+- Email: B.smith66090@gmail.com
 
